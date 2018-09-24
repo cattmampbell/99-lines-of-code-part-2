@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 'click' event handler on singBtn
     singBtn.addEventListener('click', () => {
         singBtnCount += 1; // Adds 1 to singBtnCount each time 'click' event handler on SingBtn runs
-
-        //  If singBtnCount is equal to 1...
         if(singBtnCount === 1) {
             const myFriends = ['Olivia', 'Cody', 'Megan', 'Emily', 'Toast'];
             for(let i = 0; i < myFriends.length; i += 1) { 
@@ -53,11 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 //                      <p class="card-text">
                 const divRow = createElement('div', `divRow${divRowNum}`, 'row justify-content-center align-items-center', divContainer);
                 divRowNum += 1; // Adds 1 to divRowNum w/ each iteration of loop
+
                 const divCard = createElement('div', '', 'friend card col-4 px-2 py-2 mx-3 my-3', divRow);
                 divCard.setAttribute('style', 'width: 40rem;'); 
+
                 const img = createElement('img', `img${myFriend}`, 'card-img-top', divCard);
                 img.setAttribute('src', `my-friends/${myFriend}.jpg`); 
                 img.setAttribute('alt', `This is my friend, ${myFriend}.`);
+
                 const divCardBody = createElement('div', '', 'card-body', divCard);
                 const h3Card = createElement('h3', '', 'card-title text-dark', divCardBody);
                 const h3Txt = createTextNode(myFriend, h3Card);
@@ -66,19 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 for(let j = 99; j > 0; j -= 1) {
                     let song = ``;
                     if(j > 2) { 
-                        song += `${j} lines of code in the file, ${j} lines of code; ${myFriend} strikes one out, clears it all out, 
-                        ${(j - 1)} lines of code in the file.`;
+                        song += `${j} lines of code in the file, ${j} lines of code; ${myFriend} strikes one out, clears it all out, ${(j - 1)} lines of code in the file. `;
                     } else if(j == 2) { 
-                        song += `${j} lines of code in the file, ${j} lines of code; ${myFriend} strikes one out, clears it all out, 
-                        ${(j - 1)} more line of code in the file.`;
+                        song += ` ${j} lines of code in the file, ${j} lines of code; ${myFriend} strikes one out, clears it all out, ${(j - 1)} more line of code in the file. `;
                     } else if (j == 1) { 
-                        song += ` ${j} line of code in the file, ${j} line of code; ${myFriend} strikes one out, clears it all out, 
-                        no more lines of code in the file!`;
+                        song += ` ${j} line of code in the file, ${j} line of code; ${myFriend} strikes one out, clears it all out, no more lines of code in the file!`;
                     }
                     const pCardTxt = createTextNode(`${song}`, pCard);
                 }
             }
-            //  Else if singBtnCount is greater than 1...
         }  else if(singBtnCount > 1) {
             alert(`Your friends are already singing!`);
         }
