@@ -62,18 +62,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 const divCardBody = createElement('div', '', 'card-body', divCard);
                 const h3Card = createElement('h3', '', 'card-title text-dark', divCardBody);
                 const h3Txt = createTextNode(myFriend, h3Card);
-                const pCard = createElement('p', '', 'card-text text-secondary', divCardBody);
 
                 for(let j = 99; j > 0; j -= 1) {
-                    let song = ``;
-                    if(j > 2) { 
-                        song += `${j} lines of code in the file, ${j} lines of code; ${myFriend} strikes one out, clears it all out, ${(j - 1)} lines of code in the file. `;
+                    if(j > 2) {
+                        const pCard = createElement('p', '', 'card-text text-secondary mb-0', divCardBody);
+                        let song = `${j} lines of code in the file, ${j} lines of code; ${myFriend} strikes one out, clears it all out, ${(j - 1)} lines of code in the file. `;
+                        const pCardTxt = createTextNode(`${song}`, pCard);
+                        const br = createElement('br', '', '', divCardBody);
                     } else if(j == 2) { 
-                        song += ` ${j} lines of code in the file, ${j} lines of code; ${myFriend} strikes one out, clears it all out, ${(j - 1)} more line of code in the file. `;
-                    } else if (j == 1) { 
-                        song += ` ${j} line of code in the file, ${j} line of code; ${myFriend} strikes one out, clears it all out, no more lines of code in the file!`;
+                        const pCard = createElement('p', '', 'card-text text-secondary mb-0', divCardBody);
+                        let song = ` ${j} lines of code in the file, ${j} lines of code; ${myFriend} strikes one out, clears it all out, ${(j - 1)} more line of code in the file. `;
+                        const pCardTxt = createTextNode(`${song}`, pCard);
+                        const br = createElement('br', '', '', divCardBody);
+                    } else if (j == 1) {
+                        const pCard = createElement('p', '', 'card-text text-secondary mb-0', divCardBody);
+                        let song = ` ${j} line of code in the file, ${j} line of code; ${myFriend} strikes one out, clears it all out, no more lines of code in the file!`;
+                        const pCardTxt = createTextNode(`${song}`, pCard);
+                        const br = createElement('br', '', '', divCardBody);
                     }
-                    const pCardTxt = createTextNode(`${song}`, pCard);
+                    // const pCardTxt = createTextNode(`${song}`, pCard);
                 }
             }
         }  else if(singBtnCount > 1) {
