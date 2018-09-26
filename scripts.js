@@ -64,23 +64,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 const h3Txt = createTextNode(myFriend, h3Card);
 
                 for(let j = 99; j > 0; j -= 1) {
-                    if(j > 2) {
+                    const createLyrics = (lyrics) => {
                         const pCard = createElement('p', '', 'card-text text-secondary mb-0', divCardBody);
-                        let song = `${j} lines of code in the file, ${j} lines of code; ${myFriend} strikes one out, clears it all out, ${(j - 1)} lines of code in the file. `;
-                        const pCardTxt = createTextNode(`${song}`, pCard);
-                        const br = createElement('br', '', '', divCardBody);
-                    } else if(j == 2) { 
-                        const pCard = createElement('p', '', 'card-text text-secondary mb-0', divCardBody);
-                        let song = ` ${j} lines of code in the file, ${j} lines of code; ${myFriend} strikes one out, clears it all out, ${(j - 1)} more line of code in the file. `;
-                        const pCardTxt = createTextNode(`${song}`, pCard);
-                        const br = createElement('br', '', '', divCardBody);
-                    } else if (j == 1) {
-                        const pCard = createElement('p', '', 'card-text text-secondary mb-0', divCardBody);
-                        let song = ` ${j} line of code in the file, ${j} line of code; ${myFriend} strikes one out, clears it all out, no more lines of code in the file!`;
+                        let song = lyrics;
                         const pCardTxt = createTextNode(`${song}`, pCard);
                         const br = createElement('br', '', '', divCardBody);
                     }
-                    // const pCardTxt = createTextNode(`${song}`, pCard);
+                    
+                    if(j > 2) {
+                        const a = createLyrics(`${j} lines of code in the file, ${j} lines of code; ${myFriend} strikes one out, clears it all out, ${(j - 1)} lines of code in the file. `);
+                    } else if(j == 2) { 
+                        const b = createLyrics(` ${j} lines of code in the file, ${j} lines of code; ${myFriend} strikes one out, clears it all out, ${(j - 1)} more line of code in the file. `); 
+                    } else if (j == 1) {
+                        const c = createLyrics(` ${j} line of code in the file, ${j} line of code; ${myFriend} strikes one out, clears it all out, no more lines of code in the file!`);
+                    }
                 }
             }
         }  else if(singBtnCount > 1) {
